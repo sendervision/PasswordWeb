@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+    <script
+      src="{{ url_for('static', filename='js/app.js')}}"
+      type="module"
+    ></script>
+    <title>Password Web</title>
+  </head>
+  <body>
+    <header>
+      <h1>Password Web</h1>
+    </header>
+    <form class="form" method="post">
+      <p id="id-password-text-input">Générer un mot de passe</p>
+      <input id="input-password" name="input_password" value="{{data.password}}" />
+      <input
+        type="range"
+        min="4"
+        max="40"
+        value="{{data.input_length_password}}"
+        id="input-length-password"
+        name="input_length_password"
+      />
+        <div class="container-checkbox-filter-password">
+          <input type="checkbox" id="uppercase" name="input_uppercase" checked={{data.input_uppercase}}/>
+          <label for="uppercase">Majuscule</label>
+        </div>
+        <div class="container-checkbox-filter-password">
+          <input type="checkbox" id="lowercase" name="input_lowercase" checked/>
+          <label for="lowercase">Minuscule</label>
+        </div>
+        <div class="container-checkbox-filter-password">
+          <input type="checkbox" id="punctuation" name="input_punctuation" checked />
+          <label for="punctuation">Ponctuation</label>
+        </div>
+      <button value="Générer" id="btn-generate">Générer</button>
+      <!-- <button id="btn-save-password">Sauvegarder</button> -->
+    </form>
+    <template id="toast-layout" >
+      <div class="container-toast">
+        <p id="message-toast">Hello amir</p>
+        <!-- <a id="btn-close-toast" >&times;</a> -->
+      </div>
+    </template>
+  </body>
+</html>
